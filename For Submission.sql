@@ -387,7 +387,20 @@ SELECT * FROM Client
 -- SELECT DATEDIFF(hour, '2005-12-31 23:59:59.9999999', '2006-01-01 00:00:00.0000000');
   /*  16)  Run some SQL using the While statement.  Check out this statement on 
            the Microsoft home page.  
-		   			 Extra Credit :
+		   */
+		    
+  
+						WHILE ( SELECT AVG(fee) FROM dbo.Lesson) < 60  
+						BEGIN  
+							UPDATE dbo.Lesson 
+								SET fee = fee * 1.2;  
+							SELECT MAX ( fee) FROM Lesson  
+							IF ( SELECT MAX (fee) FROM Lesson) > 80 
+								BREAK;  
+						END
+
+
+		   /*			 Extra Credit :
 We are expanding our business to give flying lessons as well as driving lessons.
 Add Pilots, Planes, flying lessons, etc. to your project.
 Expand your ER diagram, create more tables, more queries, etc.
